@@ -34,7 +34,7 @@ class ServerLatencyTest:
 
     def _get_timestamp_difference(self, data, client_name, to_client_connection, from_client_connection):
         send([to_client_connection], data)
-        [data] = receive([from_client_connection], data)
+        [data] = receive([from_client_connection])
 
         if data["type"] == "state":
             self._latencies[client_name] = time() - data["state"]
